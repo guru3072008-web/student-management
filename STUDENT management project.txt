@@ -1,0 +1,113 @@
+#include <stdio.h>
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float cutoff;
+    char city[50];
+    char dream[50];
+};
+
+int main()
+{
+    struct Student s[100];
+    int n, i;
+
+    printf("STUDENT DETAILS MANAGEMENT SYSTEM\n");
+    printf("----------------------------------\n");
+
+    // Enter number of students
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    if (n <= 0 || n > 100)
+    {
+        printf("Invalid student count!");
+        return 0;
+    }
+
+    // Collect student details
+    for (i = 0; i < n; i++)
+    {
+        printf("\nEnter details of Student %d\n", i + 1);
+
+        printf("Enter Roll Number: ");
+        scanf("%d", &s[i].roll);
+
+        printf("Enter Name: ");
+        scanf(" %49[^\n]", s[i].name);
+
+        printf("Enter Cut-off Mark: ");
+        scanf("%f", &s[i].cutoff);
+
+        printf("Enter City: ");
+        scanf(" %49[^\n]", s[i].city);
+
+        printf("Enter Dream: ");
+        scanf(" %49[^\n]", s[i].dream);
+    }
+
+    // Display student details
+    printf("\n\nSTUDENT DETAILS\n");
+    printf("----------------------------------\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("\nStudent %d Details\n", i + 1);
+
+        printf("Roll Number : %d\n", s[i].roll);
+        printf("Name        : %s\n", s[i].name);
+        printf("Cut-off Mark: %.2f\n", s[i].cutoff);
+        printf("City        : %s\n", s[i].city);
+        printf("Dream       : %s\n", s[i].dream);
+    }
+
+    printf("\nProgram completed successfully!");
+
+    return 0;
+},
+
+
+
+OUTPUT;
+
+
+
+STUDENT DETAILS MANAGEMENT SYSTEM
+----------------------------------
+Enter number of students: 2
+
+Enter details of Student 1
+Enter Roll Number: 101
+Enter Name: Guru
+Enter Cut-off Mark: 185.5
+Enter City: Chennai
+Enter Dream: Software Engineer
+
+Enter details of Student 2
+Enter Roll Number: 102
+Enter Name: Arun
+Enter Cut-off Mark: 190
+Enter City: Madurai
+Enter Dream: Doctor
+
+
+STUDENT DETAILS
+----------------------------------
+
+Student 1 Details
+Roll Number : 101
+Name        : Guru
+Cut-off Mark: 185.50
+City        : Chennai
+Dream       : Software Engineer
+
+Student 2 Details
+Roll Number : 102
+Name        : Arun
+Cut-off Mark: 190.00
+City        : Madurai
+Dream       : Doctor
+
+Program completed successfully!
